@@ -25,7 +25,14 @@ class FileStorage:
         Return:
             returns a dictionary of __object
         """
-        return self.__objects
+        if cls:
+            dic = {}
+            for key, val in self.__objects.items():
+                if type(val) == cls:
+                    dic[key] = self.__objects[key]
+            return dic
+        else:
+            return self.__objects
 
     def new(self, obj):
         """sets __object to given obj
@@ -60,4 +67,4 @@ class FileStorage:
         """ deletes an object """
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
-            self.__objects[key] = obj
+            del self.__objects[key]
