@@ -14,4 +14,5 @@ def do_clean(number=0):
         run('cd /data/web_static/releases; ls | head -n -1 | xargs rm -rf')
     else:
         local('cd versions; ls | head -n -{} | xargs rm -rf'.format(number))
-        run('cd /data/web_static/releases; ls | head -n -{} | xargs rm -rf'.format(number))
+        run('cd /data/web_static/releases; ls | head -n -{} | xargs rm -rf'.
+            format(number))
