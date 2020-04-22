@@ -20,4 +20,4 @@ class State(BaseModel, Base):
     @property
     def cities(self):
         objs = models.storage.all(City)
-        return [v for k, v in objs.items() if v.place_id == self.id]
+        return [v for k, v in objs.items() if v.state_id == self.id]
